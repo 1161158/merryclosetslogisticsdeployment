@@ -195,7 +195,7 @@ truckReply(Request) :-
 getCities(Dict):-
     retractall(city(_, _, _)),
     setup_call_cleanup(
-        http_open('http://localhost:1234/cities', In, [request_header('Accept'='application/json')]),
+        http_open('http://merryclosetsorders.herokuapp.com/cities', In, [request_header('Accept'='application/json')]),
         json_read_dict(In, Dict),
         close(In)
   ).
@@ -203,7 +203,7 @@ getCities(Dict):-
 getManufactories(Dict):-
     retractall(manufactory(_, _, _, _, _)),
     setup_call_cleanup(
-        http_open('http://localhost:1234/manufactures', In, [request_header('Accept'='application/json')]),
+        http_open('http://merryclosetsorders.herokuapp.com/manufactures', In, [request_header('Accept'='application/json')]),
         json_read_dict(In, Dict),
         close(In)
   ).
@@ -211,7 +211,7 @@ getManufactories(Dict):-
 getSizes(Dict):-
     retractall(packageSize(_, _, _, _)),
     setup_call_cleanup(
-        http_open('http://localhost:1234/sizes', In, [request_header('Accept'='application/json')]),
+        http_open('http://merryclosetsorders.herokuapp.com/sizes', In, [request_header('Accept'='application/json')]),
         json_read_dict(In, Dict),
         close(In)
     ).
@@ -219,7 +219,7 @@ getSizes(Dict):-
 getOrders(Dict):-
     retractall(order(_)),
     setup_call_cleanup(
-        http_open('http://localhost:1234/orders', In, [request_header('Accept'='application/json')]),
+        http_open('http://merryclosetsorders.herokuapp.com/orders', In, [request_header('Accept'='application/json')]),
         json_read_dict(In, Dict),
         close(In)
     ).
